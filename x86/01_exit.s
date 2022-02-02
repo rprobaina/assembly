@@ -14,7 +14,7 @@
 
 .section .text
 
-.global _start
+.globl _start
 
 _start:
 movl $1, %eax	# 1 is the number of exit system call

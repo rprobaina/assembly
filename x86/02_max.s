@@ -19,7 +19,7 @@ data_items:
 
 .section .text
 
-.global _start
+.globl _start
 
 _start:
 movl $0, %edi			# initializaing the index
