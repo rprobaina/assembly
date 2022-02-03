@@ -16,15 +16,16 @@
 
 _start:
 ## MAIN ##
-pushl $3		# pushing the second argument
-pushl $2		# pushing the first argument
+pushl $3	# pushing the second argument
+pushl $2	# pushing the first argument
 call power	# calling the function "power"
 addl $8, %esp	# moving the stack pointer (%esp) back
+
 pushl %eax	# save the first answer before calling
 		# the function again
 
-pushl $5		# pushing the second argument
-pushl $2		# pushing the first argument
+pushl $5	# pushing the second argument
+pushl $2	# pushing the first argument
 call power	# calling the function "power"
 addl $8, %esp	# moving the stack pointer (%esp) back
 
@@ -60,9 +61,9 @@ int $0x80
 #		%eax is used for temporary storage
 .type power, @function
 power:
-pushl %ebp	# save old base pointer (%ebp)
-movl %esp, %ebp	# make the stack pointer the base pointer
-subl $4, %esp	# get room for our local storage
+pushl %ebp		# save old base pointer (%ebp)
+movl %esp, %ebp		# make the stack pointer the base pointer
+subl $4, %esp		# get room for our local storage
 
 movl 8(%ebp), %ebx	# put the first argument in %ebx
 movl 12(%ebp), %ecx	# put the second argument in %ecx
